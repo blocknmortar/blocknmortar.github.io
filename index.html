@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>[hidden]{display:none!important}img{max-width:100%}body{margin:0}</style>
+<title>Block N Mortar</title>
+<meta name="description" content="Block N Mortar: residential and commercial general contractors in Freetown and the surrounding Provinces of Sierra Leone.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout concept: a block wall in running bond. Wide courses of content sit offset from each other, joined by mortar-grey gaps, with the logo's green as the one accent. */
+:root{
+  --concrete:#e4e5e2; --block:#f6f6f3; --joint:#c6c8c5; --ink:#232527; --muted:#55585a;
+  --green:#8cc63f; --on-green:#1c2410; --chalk:#47761a; --line:#b5b7b3; --field:#ffffff;
+  --display:"Oswald","Arial Narrow",Impact,sans-serif;
+  --body:"Public Sans","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --wrap:1180px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --concrete:#1a1c1d; --block:#26292a; --joint:#101112; --ink:#eceee9; --muted:#a9adaa;
+  --green:#8cc63f; --on-green:#1c2410; --chalk:#a3d65c; --line:#3e4243; --field:#1e2021; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --concrete:#1a1c1d; --block:#26292a; --joint:#101112; --ink:#eceee9; --muted:#a9adaa;
+  --green:#8cc63f; --on-green:#1c2410; --chalk:#a3d65c; --line:#3e4243; --field:#1e2021; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--concrete);color:var(--ink);font:400 1.0625rem/1.6 var(--body)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--concrete)}
+.band{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:var(--wrap);margin-inline:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--chalk);outline-offset:2px}
+h1,h2,h3,p,ul{margin:0}
+h2{font:700 clamp(2.2rem,5.4vw,3.6rem)/1.08 var(--display);text-transform:uppercase;letter-spacing:.005em;text-wrap:balance}
+h3{font:600 1.6rem/1.15 var(--display);text-transform:uppercase;letter-spacing:.01em}
+.label{font:500 .8rem/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--chalk)}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--concrete);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;flex-wrap:wrap;padding-block:8px}
+.mark{display:block;line-height:0;text-decoration:none}
+.mark img{height:48px;width:auto;display:block}
+.logo-d{display:none!important}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .logo-l{display:none!important}:root:not([data-theme="light"]) .logo-d{display:block!important}}
+:root[data-theme="dark"] .logo-l{display:none!important}:root[data-theme="dark"] .logo-d{display:block!important}
+.top nav{display:flex;gap:20px;align-items:center;font-weight:600;font-size:.95rem}
+.top nav a{text-decoration:none}
+.top nav a:hover{color:var(--chalk)}
+
+.btn{display:inline-block;background:var(--green);color:var(--on-green);border:0;padding:14px 22px;font:700 1rem/1.2 var(--body);text-decoration:none;cursor:pointer}
+.btn:hover{filter:brightness(1.15)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.top .btn{padding:9px 14px;font-size:.9rem}
+
+/* hero: the name laid as three courses */
+.hero{padding-block:clamp(28px,6vw,64px) clamp(40px,7vw,80px)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,5vw,64px);align-items:end}
+.wall{background:var(--joint);padding:8px;line-height:0}
+.wall img{width:100%;height:auto;max-height:560px;object-fit:cover;display:block}
+.course{display:flex;gap:8px}
+.course span{background:var(--block);display:block;min-width:0}
+.course .word{flex:1;font:700 24cqw/1 var(--display);padding:.1em .12em .06em;letter-spacing:.01em;animation:lay .55s cubic-bezier(.2,.8,.2,1) both}
+.course:nth-child(2) .word{animation-delay:.12s}
+.course:nth-child(3) .word{animation-delay:.24s}
+.course .half{flex:0 0 22%}
+.course .word.n{flex:0 0 auto;background:var(--green);color:var(--on-green)}
+@keyframes lay{from{transform:translateY(-10px)}to{transform:none}}
+@media (prefers-reduced-motion:reduce){.course .word{animation:none}html{scroll-behavior:auto}}
+.pitch{display:grid;gap:20px;min-width:0}
+.pitch h1{font:700 clamp(1.5rem,2.6vw,2.05rem)/1.2 var(--body);letter-spacing:-.01em;text-wrap:balance}
+.pitch p{color:var(--muted);max-width:44ch}
+.cta{display:flex;gap:10px;flex-wrap:wrap}
+
+/* chalk line divider */
+.chalk{height:0;border-top:2px dashed var(--chalk);opacity:.75}
+
+section{padding-block:clamp(48px,8vw,96px)}
+.head{display:grid;gap:12px;margin-bottom:clamp(24px,4vw,44px);max-width:760px}
+.head p:not(.label){color:var(--muted);max-width:60ch}
+
+/* services in running bond */
+.bond{display:grid;gap:8px;background:var(--joint);padding:8px;grid-template-columns:repeat(6,minmax(0,1fr))}
+.bond article{background:var(--block);padding:clamp(20px,3vw,32px);display:grid;gap:12px;align-content:start;min-width:0}
+.bond article:nth-child(1){grid-column:span 3}
+.bond article:nth-child(2){grid-column:span 3}
+.bond article:nth-child(n+3){grid-column:span 2}
+.bond article:last-child{grid-column:1/-1}
+.bond ul{list-style:none;padding:0;display:grid;gap:4px}
+.bond li{padding-left:18px;position:relative}
+.bond li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:5px;background:var(--chalk)}
+.bond p{color:var(--muted)}
+
+/* why */
+.why{background:var(--green);color:var(--on-green)}
+.why .label{color:inherit;opacity:.85}
+.why .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,72px)}
+.why .points{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.why .points div{display:grid;gap:6px;align-content:start;min-width:0}
+.why .points p{opacity:.92}
+
+/* estimate */
+.estimate .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,5vw,64px);align-items:start}
+form{display:grid;gap:16px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.f{display:grid;gap:6px;min-width:0}
+.f.full{grid-column:1/-1}
+label{font-weight:600;font-size:.95rem}
+input,select,textarea{width:100%;font:400 1rem/1.4 var(--body);color:var(--ink);background:var(--field);border:1px solid var(--muted);border-radius:0;padding:12px}
+textarea{min-height:130px;resize:vertical}
+.err{color:#b3261e;font-size:.9rem;grid-column:1/-1}
+:root[data-theme="dark"] .err{color:#ff9d94}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .err{color:#ff9d94}}
+.ready{grid-column:1/-1;display:grid;gap:12px;background:var(--block);padding:20px;border:2px dashed var(--chalk)}
+.ready pre{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font:400 .9rem/1.5 var(--mono)}
+.card{background:var(--block);padding:clamp(20px,3vw,28px);display:grid;gap:18px}
+.card dl{margin:0;display:grid;gap:14px}
+.card dt{font:500 .78rem/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.card dd{margin:2px 0 0;font-weight:600;overflow-wrap:anywhere}
+.hours{font-variant-numeric:tabular-nums}
+.link-btn{background:none;border:0;padding:0;font:600 .85rem var(--body);color:var(--chalk);text-decoration:underline;cursor:pointer;margin-left:8px}
+
+/* projects */
+.work{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:clamp(190px,24vw,300px);gap:8px;background:var(--joint);padding:8px}
+.work figure{margin:0;position:relative;min-width:0;background:var(--block);display:grid;grid-template-rows:minmax(0,1fr) auto;grid-column:span 2}
+.work figure.wide{grid-column:span 3}
+.work figure.tall{grid-row:span 2}
+.groups{display:grid;gap:clamp(28px,4vw,44px)}
+.group{display:grid;gap:12px;min-width:0}
+.work img{width:100%;height:100%;object-fit:cover;display:block;min-height:0}
+.work figcaption{padding:8px 12px;font-size:.92rem;font-weight:500}
+@media (max-width:860px){.work{grid-template-columns:minmax(0,1fr);grid-auto-rows:auto}.work figure.wide,.work figure,.work figure.tall{grid-column:auto;grid-row:auto}.work img{height:auto}}
+
+/* plans upload */
+.drop{display:block;border:2px dashed var(--chalk);padding:22px 16px;text-align:center;cursor:pointer;font-weight:500}
+.drop strong{color:var(--chalk)}
+.drop.over{background:var(--block)}
+.drop input{position:absolute;width:1px;height:1px;opacity:0;padding:0;border:0}
+.drop:focus-within{outline:3px solid var(--chalk);outline-offset:2px}
+.filelist{list-style:none;margin:0;padding:0;display:grid;gap:4px;font-size:.95rem}
+.filelist li{display:flex;justify-content:space-between;gap:10px;min-width:0}
+.filelist span{overflow-wrap:anywhere;min-width:0}
+.hint{font-size:.9rem;color:var(--muted);font-weight:400}
+
+footer{border-top:1px solid var(--line);padding-block:28px;font-size:.95rem;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-between}
+footer strong{font:900 1.2rem var(--display);color:var(--ink);letter-spacing:.02em}
+
+@media (max-width:860px){
+  .hero .wrap,.why .wrap,.estimate .wrap{grid-template-columns:minmax(0,1fr)}
+  .bond{grid-template-columns:minmax(0,1fr)}
+  .bond article:nth-child(n){grid-column:auto}
+}
+@media (max-width:560px){
+  .top nav a:not(.btn){display:none}
+  .why .points,form{grid-template-columns:minmax(0,1fr)}
+}
+</style>
+
+</head>
+<body>
+<header class="top band">
+  <div class="wrap">
+    <a class="mark" href="#home"><img class="logo-l" src="img/logo.png" alt="Block N Mortar" width="1302" height="481"><img class="logo-d" src="img/logo-dark.png" alt="Block N Mortar" width="1302" height="481"></a>
+    <nav aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#why">Why us</a>
+      <a href="#contact">Contact</a>
+      <a class="btn" href="#contact">Free estimate</a>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+  <div class="hero band">
+    <div class="wrap">
+      <div class="wall"><img src="img/finished-building.jpg" alt="Multi-storey building with a finished grey exterior, palm trees beside it" width="772" height="586"></div>
+      <div class="pitch">
+        <p class="label">Freetown &amp; the surrounding Provinces</p>
+        <h1>General contractors for homes and businesses in Sierra Leone.</h1>
+        <p>From a new bathroom to the house you've always wanted. Fair pricing and professional work are the cornerstone of how we operate.</p>
+        <div class="cta">
+          <a class="btn" href="#contact">Get a free estimate</a>
+          <a class="btn ghost" href="#services">See what we build</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="band"><div class="wrap chalk"></div></div>
+
+  <section id="services" class="band">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">Services</p>
+        <h2>Renovations, additions and new builds</h2>
+        <p>Residential and commercial work at every scale. We bring the people and tools, get the job done, and clean up afterwards.</p>
+      </div>
+      <div class="bond">
+        <article>
+          <h3>Residential</h3>
+          <p>A face-lift for the space you have, or an entirely new one.</p>
+          <ul><li>Bathroom renovations</li><li>Kitchen extensions</li><li>Building your dream house</li></ul>
+        </article>
+        <article>
+          <h3>Commercial</h3>
+          <p>Renovations, additions and new builds for places that serve the public.</p>
+          <ul><li>Restaurants and bars</li><li>Offices and schools</li><li>Hotel renovations</li></ul>
+        </article>
+        <article>
+          <h3>Roofing</h3>
+          <p>We build roofs and the ceilings beneath them.</p>
+        </article>
+        <article>
+          <h3>Concrete repair</h3>
+          <p>Cracked and failing concrete broken out, repaired and rendered.</p>
+        </article>
+        <article>
+          <h3>Roads, driveways and drainage</h3>
+          <p>Poured concrete roads and driveways, plus drainage channels with steel grates.</p>
+        </article>
+        <article>
+          <h3>Walls and fences</h3>
+          <p>Block boundary walls and fences to keep your property secure.</p>
+        </article>
+        <article>
+          <h3>Wells and water towers</h3>
+          <p>Hand-dug wells and concrete water towers with storage tanks.</p>
+        </article>
+        <article>
+          <h3>Epoxy floors</h3>
+          <p>Hard-wearing, easy-to-clean floors for garages, shops, restaurants and workshops.</p>
+        </article>
+        <article>
+          <h3>Free estimates</h3>
+          <p>Leave your details and we'll get back to you with a free estimate. You can attach your plans if you have them.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="band" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">Projects</p>
+        <h2>Our work on site</h2>
+        <p>Photos from our jobs in Sierra Leone, from the first blocks to the final coat.</p>
+      </div>
+      <div class="groups">
+      <div class="group"><h3>Interior renovation</h3>
+      <p class="hint">Three stages of the work inside one building.</p>
+      <div class="work">
+        <figure><img src="img/interior-stripped.jpg" alt="Room with old wall finish scraped back to bare render" loading="lazy"><figcaption>Walls stripped back</figcaption></figure>
+        <figure><img src="img/interior-coating.jpg" alt="Two workers on benches applying a new coat to the walls and ceiling" loading="lazy"><figcaption>New coat on walls and ceiling</figcaption></figure>
+        <figure><img src="img/interior-painted.jpg" alt="Bright room with freshly painted white walls and a tiled floor, with paint tubs and workers finishing up" loading="lazy"><figcaption>Fresh paint, final touches</figcaption></figure>
+      </div></div>
+      <div class="group"><h3>New builds</h3>
+      <div class="work">
+        <figure class="wide"><img src="img/formwork.jpg" alt="House under construction with block walls, decorative columns and timber formwork" loading="lazy"><figcaption>Block walls and cast columns, with timber formwork</figcaption></figure>
+        <figure class="wide"><img src="img/structure.jpg" alt="Two-storey concrete block building with timber scaffolding and steel starter bars" loading="lazy"><figcaption>Two-storey block structure with scaffolding</figcaption></figure>
+        <figure class="wide"><img src="img/slab.jpg" alt="Freshly poured concrete slab with timber edge forms and hills behind" loading="lazy"><figcaption>Freshly poured concrete slab</figcaption></figure>
+        <figure class="wide"><img src="img/boundary-wall.jpg" alt="New concrete block boundary wall with timber braces" loading="lazy"><figcaption>Block boundary wall going up</figcaption></figure>
+      </div></div>
+      <div class="group"><h3>Roofing</h3>
+      <div class="work">
+        <figure><img src="img/roof-trusses.jpg" alt="Timber roof trusses going up on a block building" loading="lazy"><figcaption>Timber roof trusses going up</figcaption></figure>
+        <figure><img src="img/roof-hillside.jpg" alt="Block house with a timber roof frame in place, with a green hillside behind" loading="lazy"><figcaption>Roof frame on a new house</figcaption></figure>
+        <figure><img src="img/roof-inside.jpg" alt="Upper floor seen from inside, with timber roof frame and green roofing sheets above" loading="lazy"><figcaption>Timber frame and roofing sheets from inside</figcaption></figure>
+      </div></div>
+      <div class="group"><h3>Exterior finishing</h3>
+      <div class="work">
+        <figure class="wide"><img src="img/finished-building.jpg" alt="Multi-storey building with a finished grey exterior" loading="lazy"><figcaption>Finished exterior on a multi-storey building</figcaption></figure>
+        <figure class="wide"><img src="img/scaffold-coat.jpg" alt="Two-storey building with new grey exterior coat behind timber scaffolding" loading="lazy"><figcaption>New exterior coat on a two-storey building</figcaption></figure>
+        <figure class="wide"><img src="img/rendering.jpg" alt="Two workers on timber scaffolding finishing a building exterior" loading="lazy"><figcaption>Finishing walls from timber scaffolding</figcaption></figure>
+        <figure class="wide"><img src="img/grinding.jpg" alt="Worker wearing a dust mask using an angle grinder on a wall" loading="lazy"><figcaption>Grinding walls smooth before finishing</figcaption></figure>
+      </div></div>
+      <div class="group"><h3>Concrete road</h3>
+      <div class="work">
+        <figure><img src="img/road-base.jpg" alt="Crew shovelling sand on a crushed stone road base" loading="lazy"><figcaption>Stone base and sand on site</figcaption></figure>
+        <figure><img src="img/road-pour.jpg" alt="Two workers finishing freshly laid concrete on a road" loading="lazy"><figcaption>Laying the concrete</figcaption></figure>
+        <figure><img src="img/road-surface.jpg" alt="Long stretch of new concrete road lined with palm trees" loading="lazy"><figcaption>New concrete surface</figcaption></figure>
+      </div></div>
+      <div class="group"><h3>Drainage</h3>
+      <div class="work">
+        <figure class="wide"><img src="img/drain-trench.jpg" alt="Worker checking a newly dug drainage trench" loading="lazy"><figcaption>Digging the drainage channel</figcaption></figure>
+        <figure class="wide"><img src="img/drain-forms.jpg" alt="Timber formwork braced along a concrete drainage channel" loading="lazy"><figcaption>Timber forms for the concrete channel</figcaption></figure>
+        <figure class="wide"><img src="img/drain-grate.jpg" alt="Workers fabricating a long steel drain grate on site" loading="lazy"><figcaption>Making the steel grate on site</figcaption></figure>
+        <figure class="wide"><img src="img/drain-finished.jpg" alt="Steel drain grate set into the driveway at a large gate" loading="lazy"><figcaption>Steel grate in place at the gate</figcaption></figure>
+      </div></div>
+      <div class="group"><h3>Water tower</h3>
+      <div class="work">
+        <figure class="wide"><img src="img/tower-full.jpg" alt="Concrete water tower with storage tanks, surrounded by timber scaffolding" loading="lazy"><figcaption>Concrete tower with water tanks</figcaption></figure>
+        <figure class="wide"><img src="img/tower-crew.jpg" alt="Two workers on timber scaffolding finishing a concrete water tower" loading="lazy"><figcaption>Crew finishing the concrete from scaffolding</figcaption></figure>
+      </div></div>
+      <div class="group"><h3>Well digging</h3>
+      <div class="work">
+        <figure class="wide"><img src="img/well-top.jpg" alt="Top of a hand-dug well with timber boards across the opening and a rope leading down" loading="lazy"><figcaption>Well opening with rope access</figcaption></figure>
+        <figure class="wide"><img src="img/well-shaft.jpg" alt="View down a hand-dug well shaft through earth and rock, with a rope and timber at the bottom" loading="lazy"><figcaption>Digging down through earth and rock</figcaption></figure>
+      </div></div>
+      <div class="group"><h3>Concrete repair</h3>
+      <div class="work">
+        <figure><img src="img/propped-opening.jpg" alt="Timber props and formwork holding up a damaged concrete beam over a ground-floor opening" loading="lazy"><figcaption>Propping the structure and forming the new beam</figcaption></figure>
+        <figure><img src="img/breaking-out.jpg" alt="A worker with a hammer breaking out cracked render on a concrete wall" loading="lazy"><figcaption>Breaking out cracked render by hand</figcaption></figure>
+        <figure><img src="img/fresh-render.jpg" alt="Covered veranda with freshly rendered wall and ceiling, with cement bag and tools on the floor" loading="lazy"><figcaption>Walls and ceiling freshly rendered</figcaption></figure>
+      </div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why" class="why band">
+    <div class="wrap">
+      <div class="head" style="margin-bottom:0">
+        <p class="label">Why Block N Mortar</p>
+        <h2>We like to get our hands dirty, so you don't have to.</h2>
+      </div>
+      <div class="points">
+        <div><h3>Fair pricing</h3><p>Fair prices and professional work on every job.</p></div>
+        <div><h3>Our own tools</h3><p>We use our own tools and have the personnel to see the job through.</p></div>
+        <div><h3>Quick and safe</h3><p>Timely, reliable workers with many years of experience.</p></div>
+        <div><h3>Easy to reach</h3><p>We welcome your questions. We aren't satisfied until you are.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="estimate band">
+    <div class="wrap">
+      <div>
+        <div class="head">
+          <p class="label">Free estimate</p>
+          <h2>Get a free estimate</h2>
+          <p>Add your information and we'll get back to you with an estimate.</p>
+        </div>
+        <form id="enquiry" novalidate>
+          <div class="f"><label for="name">Your name</label><input id="name" autocomplete="name"></div>
+          <div class="f"><label for="phone">Phone number</label><input id="phone" type="tel" autocomplete="tel" placeholder="+232"></div>
+          <div class="f full"><label for="email">Email <span class="hint">(optional)</span></label><input id="email" type="email" autocomplete="email"></div>
+          <div class="f"><label for="type">Type of job</label>
+            <select id="type"><option>Residential renovation</option><option>Residential new build</option><option>Commercial renovation</option><option>Commercial new build</option><option>Addition or extension</option><option>Block wall or fence</option><option>Concrete floor</option><option>Epoxy floor</option><option>Well or water tower</option><option>Roofing</option><option>Something else</option></select>
+          </div>
+          <div class="f"><label for="area">Where is the site?</label><input id="area" placeholder="Area or town"></div>
+          <div class="f full"><label for="details">What do you want done?</label><textarea id="details" placeholder="For example: add a kitchen extension to the back of the house."></textarea></div>
+          <p class="err" id="err" hidden></p>
+          <div class="f full">
+            <span style="font-weight:600;font-size:.95rem">Your plans <span class="hint">(optional)</span></span>
+            <label class="drop" id="drop" for="plans"><strong>Attach plans or drawings</strong> or drop them here
+              <input id="plans" type="file" multiple accept=".pdf,application/pdf,image/jpeg,image/png,image/webp">
+            </label>
+            <ul class="filelist" id="planlist" hidden></ul>
+          </div>
+          <div class="f full"><button class="btn" type="submit" style="justify-self:start">Request my free estimate</button></div>
+          <div class="ready" id="ready" hidden aria-live="polite">
+            <strong>Your request is ready. It hasn't been sent yet.</strong>
+            <pre id="msg"></pre>
+            <div class="cta">
+              <a class="btn" id="waMsg" href="https://wa.me/23276570104" target="_blank" rel="noopener">Send on WhatsApp</a>
+              <a class="btn ghost" id="mailMsg" href="mailto:info@blocknmortar.com">Send by email</a>
+              <button class="btn ghost" type="button" id="copyMsg">Copy request</button>
+            </div>
+            <p id="copied" hidden>Copied. Send it to info@blocknmortar.com or WhatsApp +232 76 570104.</p>
+            <p id="planNote" hidden>Please attach your plans to your WhatsApp message or email.</p>
+          </div>
+        </form>
+      </div>
+      <aside class="card" aria-label="Contact details">
+        <h3>Contact</h3>
+        <dl>
+          <div><dt>Phone</dt><dd><a href="tel:+23276570104">+232 76 570104</a><button class="link-btn" type="button" data-copy="+232 76 570104">Copy</button></dd></div>
+          <div><dt>WhatsApp</dt><dd><a href="https://wa.me/23276570104" target="_blank" rel="noopener">Message us on WhatsApp</a></dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:info@blocknmortar.com">info@blocknmortar.com</a><button class="link-btn" type="button" data-copy="info@blocknmortar.com">Copy</button></dd></div>
+          <div><dt>Service area</dt><dd>Freetown and surrounding Provinces</dd></div>
+          <div><dt>Hours</dt><dd class="hours">Mon–Sat 08:00–17:00<br>Sunday closed</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer class="band">
+  <div class="wrap">
+    <span class="mark"><img class="logo-l" src="img/logo.png" alt="Block N Mortar" width="1302" height="481"><img class="logo-d" src="img/logo-dark.png" alt="Block N Mortar" width="1302" height="481"></span>
+    <span>General contractors · Freetown, Sierra Leone</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var plans=[];
+  function showPlans(){
+    var l=$('planlist');l.textContent='';l.hidden=!plans.length;
+    plans.forEach(function(f,i){
+      var li=document.createElement('li'),s=document.createElement('span'),b=document.createElement('button');
+      s.textContent=f.name;b.type='button';b.className='link-btn';b.textContent='Remove';
+      b.addEventListener('click',function(){plans.splice(i,1);showPlans()});
+      li.appendChild(s);li.appendChild(b);l.appendChild(li);
+    });
+  }
+  function addPlans(list){Array.prototype.forEach.call(list,function(f){if(/\.(pdf|jpe?g|png|webp)$/i.test(f.name))plans.push(f)});showPlans()}
+  $('plans').addEventListener('change',function(e){addPlans(e.target.files);e.target.value=''});
+  var drop=$('drop');
+  ['dragenter','dragover'].forEach(function(n){drop.addEventListener(n,function(e){e.preventDefault();drop.classList.add('over')})});
+  ['dragleave','drop'].forEach(function(n){drop.addEventListener(n,function(e){e.preventDefault();drop.classList.remove('over')})});
+  drop.addEventListener('drop',function(e){if(e.dataTransfer)addPlans(e.dataTransfer.files)});
+  function copy(text,done){
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(function(){});
+    }
+  }
+  $('enquiry').addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=$('name').value.trim(),phone=$('phone').value.trim(),details=$('details').value.trim(),err=$('err');
+    if(!name||!phone||!details){
+      err.textContent='Add your name, phone number and what you want done so we can get back to you.';
+      err.hidden=false;$('ready').hidden=true;return;
+    }
+    err.hidden=true;
+    var email=$('email').value.trim();
+    var text='Free estimate request\nName: '+name+'\nPhone: '+phone+(email?'\nEmail: '+email:'')+'\nJob: '+$('type').value+'\nSite: '+($('area').value.trim()||'Not given')+'\n\n'+details+(plans.length?'\n\nPlans: '+plans.map(function(f){return f.name}).join(', '):'');
+    $('msg').textContent=text;
+    $('waMsg').href='https://wa.me/23276570104?text='+encodeURIComponent(text);
+    $('mailMsg').href='mailto:info@blocknmortar.com?subject='+encodeURIComponent('Free estimate request')+'&body='+encodeURIComponent(text);
+    $('ready').hidden=false;$('copied').hidden=true;$('planNote').hidden=!plans.length;
+  });
+  $('copyMsg').addEventListener('click',function(){
+    copy($('msg').textContent,function(){$('copied').hidden=false});
+  });
+  document.querySelectorAll('[data-copy]').forEach(function(b){
+    b.addEventListener('click',function(){
+      copy(b.getAttribute('data-copy'),function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1500)});
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
