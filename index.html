@@ -167,6 +167,7 @@ footer strong{font:900 1.2rem var(--display);color:var(--ink);letter-spacing:.02
     <nav aria-label="Main">
       <a href="#services">Services</a>
       <a href="#projects">Projects</a>
+      <a href="#parent">Bare Bones</a>
       <a href="#why">Why us</a>
       <a href="#contact">Contact</a>
       <a class="btn" href="#contact">Free estimate</a>
@@ -321,6 +322,33 @@ footer strong{font:900 1.2rem var(--display);color:var(--ink);letter-spacing:.02
     </div>
   </section>
 
+  <section id="parent" class="band" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">Our parent company</p>
+        <h2>Part of Bare Bones Construction</h2>
+        <p>Block N Mortar is part of Bare Bones Construction, a construction company in Toronto, Canada, working on commercial and residential projects, including bathrooms and kitchens. These photos are from its Toronto job sites.</p>
+      </div>
+      <div class="groups">
+      <div class="group"><h3>Commercial</h3>
+      <div class="work">
+        <figure class="wide"><img src="img/bb-commercial-1.jpg" alt="Open commercial floor with exposed ceiling services and large storefront windows" loading="lazy"><figcaption>Commercial interior, opened up for the new layout</figcaption></figure>
+        <figure class="wide"><img src="img/bb-commercial-2.jpg" alt="Long commercial space on site with a worker walking through and services exposed overhead" loading="lazy"><figcaption>Commercial unit on site, Toronto</figcaption></figure>
+      </div></div>
+      <div class="group"><h3>Residential</h3>
+      <div class="work">
+        <figure class="wide"><img src="img/bb-residential-1.jpg" alt="House rear with new sheathing and red building wrap, and lumber stacked on the deck" loading="lazy"><figcaption>New sheathing and building wrap at the rear of a house</figcaption></figure>
+        <figure class="wide"><img src="img/bb-residential-2.jpg" alt="Interior wall of a house open to the studs and brick, with windows in place" loading="lazy"><figcaption>House interior, open to the studs</figcaption></figure>
+      </div></div>
+      <div class="group"><h3>Bathrooms and kitchens</h3>
+      <div class="work">
+        <figure class="wide"><img src="img/bb-bathroom.jpg" alt="Second-floor bathroom open to the studs and ceiling joists, with two windows" loading="lazy"><figcaption>Bathroom, open to the studs and joists</figcaption></figure>
+        <figure class="wide"><img src="img/bb-kitchen.jpg" alt="Main-floor kitchen area open to the timber joists and subfloor above" loading="lazy"><figcaption>Kitchen, open to the joists</figcaption></figure>
+      </div></div>
+      </div>
+    </div>
+  </section>
+
   <section id="why" class="why band">
     <div class="wrap">
       <div class="head" style="margin-bottom:0">
@@ -367,10 +395,10 @@ footer strong{font:900 1.2rem var(--display);color:var(--ink);letter-spacing:.02
             <pre id="msg"></pre>
             <div class="cta">
               <a class="btn" id="waMsg" href="https://wa.me/23276570104" target="_blank" rel="noopener">Send on WhatsApp</a>
-              <a class="btn ghost" id="mailMsg" href="mailto:info@blocknmortar.com">Send by email</a>
+              <a class="btn ghost" id="mailMsg" href="mailto:info@barebonesdemolition.com">Send by email</a>
               <button class="btn ghost" type="button" id="copyMsg">Copy request</button>
             </div>
-            <p id="copied" hidden>Copied. Send it to info@blocknmortar.com or WhatsApp +232 76 570104.</p>
+            <p id="copied" hidden>Copied. Paste it into WhatsApp at +232 76 570104.</p>
             <p id="planNote" hidden>Please attach your plans to your WhatsApp message or email.</p>
           </div>
         </form>
@@ -380,7 +408,7 @@ footer strong{font:900 1.2rem var(--display);color:var(--ink);letter-spacing:.02
         <dl>
           <div><dt>Phone</dt><dd><a href="tel:+23276570104">+232 76 570104</a><button class="link-btn" type="button" data-copy="+232 76 570104">Copy</button></dd></div>
           <div><dt>WhatsApp</dt><dd><a href="https://wa.me/23276570104" target="_blank" rel="noopener">Message us on WhatsApp</a></dd></div>
-          <div><dt>Email</dt><dd><a href="mailto:info@blocknmortar.com">info@blocknmortar.com</a><button class="link-btn" type="button" data-copy="info@blocknmortar.com">Copy</button></dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:info@barebonesdemolition.com">Email us</a></dd></div>
           <div><dt>Service area</dt><dd>Freetown and surrounding Provinces</dd></div>
           <div><dt>Hours</dt><dd class="hours">Mon–Sat 08:00–17:00<br>Sunday closed</dd></div>
         </dl>
@@ -392,7 +420,7 @@ footer strong{font:900 1.2rem var(--display);color:var(--ink);letter-spacing:.02
 <footer class="band">
   <div class="wrap">
     <span class="mark"><img class="logo-l" src="img/logo.png" alt="Block N Mortar" width="1302" height="481"><img class="logo-d" src="img/logo-dark.png" alt="Block N Mortar" width="1302" height="481"></span>
-    <span>General contractors · Freetown, Sierra Leone</span>
+    <span>General contractors · Freetown, Sierra Leone · Part of Bare Bones Construction, Toronto, Canada</span>
   </div>
 </footer>
 
@@ -432,7 +460,7 @@ footer strong{font:900 1.2rem var(--display);color:var(--ink);letter-spacing:.02
     var text='Free estimate request\nName: '+name+'\nPhone: '+phone+(email?'\nEmail: '+email:'')+'\nJob: '+$('type').value+'\nSite: '+($('area').value.trim()||'Not given')+'\n\n'+details+(plans.length?'\n\nPlans: '+plans.map(function(f){return f.name}).join(', '):'');
     $('msg').textContent=text;
     $('waMsg').href='https://wa.me/23276570104?text='+encodeURIComponent(text);
-    $('mailMsg').href='mailto:info@blocknmortar.com?subject='+encodeURIComponent('Free estimate request')+'&body='+encodeURIComponent(text);
+    $('mailMsg').href='mailto:info@barebonesdemolition.com?subject='+encodeURIComponent('Free estimate request')+'&body='+encodeURIComponent(text);
     $('ready').hidden=false;$('copied').hidden=true;$('planNote').hidden=!plans.length;
   });
   $('copyMsg').addEventListener('click',function(){
